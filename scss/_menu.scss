@@ -31,3 +31,88 @@
 		}
 	}
 }
+
+.menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	visibility: hidden;
+
+	&.show {
+		visibility: visible;
+	}
+
+	&-branding,
+	&-nav {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-flow: column wrap;
+		width: 50%;
+		height: 100vh;
+		opacity: 0.9;
+		float: left;
+		overflow: hidden;
+		@include easeOut;
+	}
+
+	&-branding {
+		background-color: $primary-color;
+		transform: translate3d(0, 100%, 0);
+
+		&.show {
+			// Slide from the bottom
+			transform: translate3d(0, 0, 0);
+		}
+
+		.portrait {
+			width: 250px;
+			height: 250px;
+			border: 3px solid $secondary-color;
+			border-radius: 50%;
+			background: url(/dist/imgs/portrait.jpg);
+		}
+	}
+
+	&-nav {
+		background-color: darken($primary-color, 5);
+		transform: translate3d(0, -100%, 0);
+
+		&.show {
+			// Slide from the top
+			transform: translate3d(0, 0, 0);
+		}
+
+		.nav-item {
+			transform: translate3d(600px, 0, 0);
+			@include easeOut;
+
+			&.show {
+				// Slide from the right
+				transform: translate3d(0, 0, 0);
+			}
+
+			// Delay each nav item slide by .1s
+			@for $x from 1 through 4 {
+				&:nth-child(#{$x}) {
+					transition-delay: $x * 0.1s;
+				}
+			}
+		}
+
+		.nav-link {
+			display: inline-block;
+			// position: relative;
+			font-size: 30px;
+			font-weight: 300;
+			text-transform: uppercase;
+			padding: 1rem 0;
+
+			&:hover,
+			&.current {
+				color: $secondary-color;
+			}
+		}
+	}
+}
