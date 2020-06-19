@@ -8,7 +8,7 @@
 
 body {
 	background-color: $primary-color;
-	color: #fff;
+	color: set-text-color($primary-color);
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	line-height: 1.5;
 	height: 100%;
@@ -76,6 +76,54 @@ main {
 			margin-top: 20vh;
 		}
 	}
+}
+
+// About me
+
+.about-info {
+	display: grid;
+	gap: 30px;
+	grid-template-areas:
+		"bioimage bio bio"
+		"job1 job2 job3";
+
+	.bio-image {
+		grid-area: bioimage;
+		margin: auto;
+		img {
+			border: 3px solid $secondary-color;
+			border-radius: 50%;
+		}
+	}
+
+	.bio {
+		grid-area: bio;
+		font-size: 1.5rem;
+	}
+
+	.job-1 {
+		grid-area: job1;
+	}
+
+	.job-2 {
+		grid-area: job2;
+	}
+
+	.job-3 {
+		grid-area: job3;
+	}
+
+	.job {
+		background: lighten($primary-color, 5);
+		padding: 1rem 1rem 2rem 1rem;
+		border-bottom: 5px solid $secondary-color;
+	}
+}
+
+footer {
+	padding: 1rem;
+	text-align: center;
+	background-color: darken($primary-color, 5);
 }
 
 @import "media";

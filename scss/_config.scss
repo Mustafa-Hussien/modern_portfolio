@@ -28,6 +28,16 @@ $background-opacity: 0.9;
 	}
 }
 
+// Color func
+
+@function set-text-color($color) {
+	@if (lightness($color) > 40) {
+		@return #333;
+	} @else {
+		@return #fff;
+	}
+}
+
 // Media queries
 
 @mixin mediaSm {

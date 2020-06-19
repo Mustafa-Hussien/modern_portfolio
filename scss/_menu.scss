@@ -10,7 +10,7 @@
 		width: 28px;
 		height: 3px;
 		margin-bottom: 5px;
-		background-color: #fff;
+		background-color: set-text-color($primary-color);
 		@include easeOut;
 	}
 
@@ -108,6 +108,7 @@
 			font-weight: 300;
 			text-transform: uppercase;
 			padding: 1rem 0;
+			color: set-text-color($primary-color);
 
 			&:hover,
 			&.current {
